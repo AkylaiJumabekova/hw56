@@ -5,7 +5,7 @@ interface TotalPriceProps {
 }
 
 const TotalPrice: React.FC<TotalPriceProps> = ({ total }) => (
-  <p>Total Price: {total} som</p>
+  <p className="total-price">Total Price: {total} som</p>
 );
 
 export default TotalPrice;

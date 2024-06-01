@@ -9,7 +9,7 @@ interface BurgerIngredientProps {
 const BurgerIngredient: React.FC<BurgerIngredientProps> = ({ ingredient, onRemove }) => (
   <div className="burger-ingredient">
     {ingredient.name} x{ingredient.count}
-    <button onClick={() => onRemove(ingredient.name)}>Delete</button>
+    <button className="remove-button" onClick={() => onRemove(ingredient.name)}>Delete</button>
   </div>
 );
 

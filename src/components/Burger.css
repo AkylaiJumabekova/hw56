@@ -1,0 +1,45 @@
+.burger {
+  width: 200px;
+  margin: 20px auto;
+}
+
+.burger .top-bun,
+.burger .bottom-bun {
+  background: #f08e4a;
+  height: 40px;
+  border-radius:50px 50px 0 0;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #f08e4a;
+}
+
+.burger .bottom-bun {
+  border-radius: 0 0 30px 30px;
+  margin-top: -10px;
+}
+
+.ingredient {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid white;
+}
+
+.ingredient.meat {
+  background: #7f3608;
+  height: 20px;
+}
+
+.ingredient.cheese {
+  background: #f4d004;
+  height: 20px;
+}
+
+.ingredient.salad {
+  background: #228c1d;
+  height: 15px;
+}
+
+.ingredient.bacon {
+  background: #bf3813;
+  height: 15px;
+}

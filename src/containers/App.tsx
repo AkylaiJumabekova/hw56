@@ -18,7 +18,7 @@ const createIngredients = () => [
 ];
 
 const App = () => {
-  const [burgerIngredients, setBurgerIngredients] = useState<IngredientInBurger[]>([]);
+  const [burgerIngredients, setBurgerIngredients] = useState< IngredientInBurger[] >([]);
 
   const addIngredient = (ingredient: Ingredient) => {
     setBurgerIngredients((prev) => {
@@ -53,10 +53,12 @@ const App = () => {
   };
 
   const calculateTotalPrice = () => {
-    let total = 0;
+    let total = 30;
     for (let i = 0; i < burgerIngredients.length; i++) {
       const ingredientInBurger = burgerIngredients[i];
-      const ingredient = createIngredients().find((ing) => ing.name === ingredientInBurger.name);
+      const ingredient = createIngredients().find(
+        (ing) => ing.name === ingredientInBurger.name
+      );
       if (ingredient) {
         total += ingredient.price * ingredientInBurger.count;
       }
@@ -68,10 +70,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <IngredientList ingredients={createIngredients()} onAddIngredient={addIngredient} />
-      <BurgerComposition ingredients={burgerIngredients} onRemoveIngredient={removeIngredient} />
-      <TotalPrice total={totalPrice} />
-      <ResetButton onReset={resetBurger} />
+      <IngredientList
+        ingredients={createIngredients()}
+        onAddIngredient={addIngredient}
+      />
+      <BurgerComposition
+        ingredients={burgerIngredients}
+        onRemoveIngredient={removeIngredient}
+      />
+      <div className="controls">
+        <TotalPrice total={totalPrice} />
+        <ResetButton onReset={resetBurger} />
+      </div>
     </div>
   );
 };
