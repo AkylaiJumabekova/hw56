@@ -2,6 +2,7 @@ import { useState } from "react";
 import IngredientList from "../components/IngredientList";
 import BurgerComposition from "../components/BurgerComposition";
 import TotalPrice from "../components/TotalPrice";
+import ResetButton from "../components/ResetButton";
 import { Ingredient, IngredientInBurger } from "../types";
 import meatImage from "../assets/meat.png";
 import cheeseImage from "../assets/cheese.png";
@@ -47,6 +48,10 @@ const App = () => {
     });
   };
 
+  const resetBurger = () => {
+    setBurgerIngredients([]);
+  };
+
   const calculateTotalPrice = () => {
     let total = 0;
     for (let i = 0; i < burgerIngredients.length; i++) {
@@ -66,6 +71,7 @@ const App = () => {
       <IngredientList ingredients={createIngredients()} onAddIngredient={addIngredient} />
       <BurgerComposition ingredients={burgerIngredients} onRemoveIngredient={removeIngredient} />
       <TotalPrice total={totalPrice} />
+      <ResetButton onReset={resetBurger} />
     </div>
   );
 };

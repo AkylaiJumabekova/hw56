@@ -6,10 +6,7 @@ interface IngredientItemProps {
   onAdd: (ingredient: Ingredient) => void;
 }
 
-const IngredientItem: React.FC<IngredientItemProps> = ({
-  ingredient,
-  onAdd,
-}) => {
+const IngredientItem: React.FC<IngredientItemProps> = ({ingredient, onAdd,}) => {
   const handleAddClick = () => {
     onAdd(ingredient);
   };
