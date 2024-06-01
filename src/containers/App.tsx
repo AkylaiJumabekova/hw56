@@ -1,6 +1,7 @@
 import { useState } from "react";
 import IngredientList from "../components/IngredientList";
 import BurgerComposition from "../components/BurgerComposition";
+import TotalPrice from "../components/TotalPrice";
 import { Ingredient, IngredientInBurger } from "../types";
 import meatImage from "../assets/meat.png";
 import cheeseImage from "../assets/cheese.png";
@@ -46,10 +47,25 @@ const App = () => {
     });
   };
 
+  const calculateTotalPrice = () => {
+    let total = 0;
+    for (let i = 0; i < burgerIngredients.length; i++) {
+      const ingredientInBurger = burgerIngredients[i];
+      const ingredient = createIngredients().find((ing) => ing.name === ingredientInBurger.name);
+      if (ingredient) {
+        total += ingredient.price * ingredientInBurger.count;
+      }
+    }
+    return total;
+  };
+
+  const totalPrice = calculateTotalPrice();
+
   return (
     <div className="App">
       <IngredientList ingredients={createIngredients()} onAddIngredient={addIngredient} />
       <BurgerComposition ingredients={burgerIngredients} onRemoveIngredient={removeIngredient} />
+      <TotalPrice total={totalPrice} />
     </div>
   );
 };
