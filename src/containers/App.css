@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+}
+
+.ingredient-list {
+  width: 30%;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.ingredient-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.ingredient-item:hover {
+  background-color: #e0e0e0;
+}
