@@ -1,5 +1,6 @@
 import { useState } from "react";
 import IngredientList from "../components/IngredientList";
+import BurgerComposition from "../components/BurgerComposition";
 import { Ingredient, IngredientInBurger } from "../types";
 import meatImage from "../assets/meat.png";
 import cheeseImage from "../assets/cheese.png";
@@ -30,16 +31,25 @@ const App = () => {
     });
   };
 
+  const removeIngredient = (name: string) => {
+    setBurgerIngredients((prev) => {
+      return prev.reduce<IngredientInBurger[]>((acc, ing) => {
+        if (ing.name === name) {
+          if (ing.count > 1) {
+            acc.push({ ...ing, count: ing.count - 1 });
+          }
+        } else {
+          acc.push(ing);
+        }
+        return acc;
+      }, []);
+    });
+  };
+
   return (
     <div className="App">
       <IngredientList ingredients={createIngredients()} onAddIngredient={addIngredient} />
-      <div>
-        {burgerIngredients.map((ingredient) => (
-          <div key={ingredient.name}>
-            {ingredient.name} x{ingredient.count}
-          </div>
-        ))}
-      </div>
+      <BurgerComposition ingredients={burgerIngredients} onRemoveIngredient={removeIngredient} />
     </div>
   );
 };
